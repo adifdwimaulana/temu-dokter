@@ -5,7 +5,7 @@ import logo from '../assets/brand-icon.png';
 export default function BrandIcon() {
     return (
         <Button className="brand-text-icon" href="/" type="link">
-            <img src={logo} width="50" />temudokter
+            <img src={logo} width="40" />temudokter
         </Button>
     )
 }
