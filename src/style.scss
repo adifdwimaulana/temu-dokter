@@ -220,6 +220,37 @@ header {
             border-color: $secondary-color;
         }
     }
+
+    .doctors-content {
+        margin-top: 100px;
+        background-color: #fafafa;
+        padding: 64px 32px;
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            .icon {
+                color: $primary-color;
+            }
+    
+            h1 {
+                font-size: 24px;
+                margin-left: 16px;
+                font-weight: $text-bold;
+                color: $text-color;
+                letter-spacing: 0.8px;
+            }        
+        }
+        h4 {
+            font-size: 16px;
+            text-align: justify;
+            font-weight: 400;
+            margin-top: 12px;
+            // letter-spacing: 0px;
+        }
+    }
 }
 
 
@@ -229,9 +260,18 @@ header {
 
 // MOBILE RESPONSIVE
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     header {
         position: relative;
+
+        .navbar-collapse {
+            a {
+                &.nav-link {
+                    padding: 8px 0 !important;
+                }
+            }
+            
+        }
     }
 
     .hero {
@@ -282,5 +322,13 @@ header {
 
     .about {
         margin-top: 60px;
+
+        .doctors-content {
+            margin-top: 60px;
+
+            .col-lg {
+                margin: 24px 0px
+            }
+        }
     }
   }
