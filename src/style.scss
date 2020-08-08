@@ -14,7 +14,6 @@ body {
 }
 
 // Brand Icon 
-
 .brand-text-icon {
     font-size: 28px;
     font-weight: 600;
@@ -40,8 +39,6 @@ header {
     z-index: 10;
 
     .navbar {
-        height: 80px;
-
         .navbar-nav {
             li.nav-item {
                 a {
@@ -57,12 +54,8 @@ header {
                            color: $primary-color;
                        }
                     }
-                }
-            }
-            .active {
-                a {
-                    &.nav-link {
-                        color: $primary-color !important;
+                    &.nav-link.active {
+                        color: $primary-color;
                     }
                 }
             }
@@ -73,10 +66,11 @@ header {
 
 // Hero
 .hero {
+    position: relative;
     color: $secondary-color;
     .hero-bg {
         background: url('./assets//hero-image.jpg');
-        height: 800px;
+        height: 750px;
         padding-top: 160px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -93,7 +87,7 @@ header {
 
     hr {
         margin-top: 16px;
-        width: 30%;
+        width: 180px;
         border: 3px solid $primary-color;
         float: left;
         position: relative;
@@ -162,8 +156,8 @@ header {
 
 // About
 .about {
-    margin-top: 80px;
-    margin-bottom: 400px;
+    margin-top: 100px;
+    margin-bottom: 800px;
 
     .about-title {
         color: $text-color;
@@ -171,4 +165,122 @@ header {
         font-weight: $text-bold;
         letter-spacing: 1.2px;
     }
+
+    hr {
+        margin-top: 16px;
+        width: 180px;
+        border: 3px solid $primary-color;
+        float: left;
+        position: relative;
+    }
+
+    img {
+        margin-top: 20px;
+        border-radius: 16px;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-weight: 400;
+        color: $text-color;
+        letter-spacing: 1px;
+        font-size: 32px;
+
+        span {
+            font-weight: $text-bold;
+        }
+    }
+
+    .description {
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.8px;
+        font-weight: 400;
+
+        span {
+            font-weight: $text-bold;
+        }
+    }
+
+    .about-cta {
+        margin: 30px 0 10px 0;
+        background-color: $primary-color;
+        border-color: $primary-color;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: $text-bold;
+        text-decoration: none;
+        letter-spacing: 1.2;
+        padding: 6px 36px;
+
+        &:hover {
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+        }
+    }
 }
+
+
+
+
+
+
+// MOBILE RESPONSIVE
+
+@media (max-width: 575.98px) { 
+    header {
+        position: relative;
+    }
+
+    .hero {
+        color: $secondary-color;
+        .hero-bg {
+            background: url('./assets//hero-image.jpg');
+            height: 100%;
+            padding-top: 160px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-text {
+            margin-top: -120px;
+            line-height: $title-size;
+        }
+
+        img {
+            margin-top: 20px;
+            padding-bottom: 160px;
+        }
+    }
+
+    .statistic {
+        margin-top: -100px;
+        position: relative;
+        margin-left: 16px;
+        margin-right: 16px;
+
+        .col-lg {
+            padding: 8px 0;
+
+            .wrapper {
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+    
+                h3 {
+                    font-size: 20px !important;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+
+    .about {
+        margin-top: 60px;
+    }
+  }

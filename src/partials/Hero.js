@@ -4,7 +4,7 @@ import Button from '../components/Button';
 
 export default function Hero() {
     return (
-        <section id="hero" className="hero">
+        <section id="hero" className="hero" name="hero">
             <div className="hero-bg">
                 <div className="container">
                     <div className="row">
@@ -17,7 +17,7 @@ export default function Hero() {
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-12">
-                            <img src={hero} alt="hero-content" width="600" />
+                            <img src={hero} alt="hero-content" width="600" className="img-fluid" />
                         </div>
                     </div>
                 </div>
