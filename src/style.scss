@@ -13,6 +13,44 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+// Global
+
+*:focus {
+    outline:none !important
+}
+
+.img-container {
+    overflow: hidden;
+    border-radius: 16px;
+
+    img {
+        transition: transform .5s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.img-wrapper {
+    overflow: hidden;
+
+    img {
+        transition: transform .5s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+hr.line {
+    margin-top: 16px;
+    width: 180px;
+    border: 3px solid $primary-color;
+    position: relative;
+}
+
 // Brand Icon 
 .brand-text-icon {
     font-size: 28px;
@@ -85,14 +123,6 @@ header {
         position: relative;
     }
 
-    hr {
-        margin-top: 16px;
-        width: 180px;
-        border: 3px solid $primary-color;
-        float: left;
-        position: relative;
-    }
-
     .text-wrapper {
         margin-top: 60px;
         background-color: rgba($color: #fff, $alpha: 0.8);
@@ -106,24 +136,6 @@ header {
         // letter-spacing: 1px;
         text-align: justify;
         position: relative;
-    }
-
-    .hero-cta {
-        margin: 40px 0 10px 0;
-        background-color: $primary-color;
-        border-color: $primary-color;
-        border-radius: 8px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: $text-bold;
-        text-decoration: none;
-        letter-spacing: 1.2;
-        padding: 6px 36px;
-
-        &:hover {
-            background-color: $secondary-color;
-            border-color: $secondary-color;
-        }
     }
 }
 
@@ -157,7 +169,6 @@ header {
 // About
 .about {
     margin-top: 100px;
-    margin-bottom: 800px;
 
     .about-title {
         color: $text-color;
@@ -166,21 +177,7 @@ header {
         letter-spacing: 1.2px;
     }
 
-    hr {
-        margin-top: 16px;
-        width: 180px;
-        border: 3px solid $primary-color;
-        float: left;
-        position: relative;
-    }
-
-    img {
-        margin-top: 20px;
-        border-radius: 16px;
-    }
-
     .title {
-        margin-top: 20px;
         font-weight: 400;
         color: $text-color;
         letter-spacing: 1px;
@@ -200,24 +197,6 @@ header {
 
         span {
             font-weight: $text-bold;
-        }
-    }
-
-    .about-cta {
-        margin: 30px 0 10px 0;
-        background-color: $primary-color;
-        border-color: $primary-color;
-        border-radius: 8px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: $text-bold;
-        text-decoration: none;
-        letter-spacing: 1.2;
-        padding: 6px 36px;
-
-        &:hover {
-            background-color: $secondary-color;
-            border-color: $secondary-color;
         }
     }
 
@@ -254,6 +233,92 @@ header {
 }
 
 
+
+// DOCTOR LIST
+
+.doctor-list {
+    .title {
+        font-size: 36px;
+        color: $text-color;
+        font-weight: $text-bold;
+        letter-spacing: 1.2px;
+        text-align: center;
+    }
+
+    .card {
+        border-radius: 8px;
+    }
+}
+
+
+
+// FACILITY
+
+.facility {
+    margin-top: 80px;
+    
+    .facility-title {
+        color: $text-color;
+        font-size: $title-size;
+        font-weight: $text-bold;
+        letter-spacing: 1.2px;
+    }
+}
+
+.testimonial {
+    margin-top: 80px;
+    margin-bottom: 400px;
+
+    .parallax {
+        background-image: url('./assets//parallax.jpg');
+        height: 600px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        .person {
+            flex-basis: auto !important;
+            text-align: center;
+            color: #fafafa;
+
+            // flex-grow: auto !important;
+        
+            .comment {
+                font-size: 28px;
+                line-height: 36px;
+                letter-spacing: 0.8px;
+                font-weight: 400;
+                text-align: center;
+            }
+
+
+                img {
+                    padding: 0px !important;
+                    margin: 40px auto !important;
+                    width: 220px;
+                    position: relative;
+                }
+
+                h3 {
+                    font-size: 24px;
+                    font-weight: 400;
+                    margin-top: -16px;
+                }
+
+                h4 {
+                    font-size: 16px;
+                    font-weight: 400;
+                    letter-spacing: 1.4px;
+                    margin-top: -4px;
+                }
+        }
+
+    }
+}
 
 
 
@@ -323,11 +388,40 @@ header {
     .about {
         margin-top: 60px;
 
+        .title {
+            margin-top: 20px;
+        }
+
         .doctors-content {
             margin-top: 60px;
 
             .col-lg {
                 margin: 24px 0px
+            }
+        }
+    }
+
+    .doctor-list {
+        .col-lg {
+            margin: 24px 0px;
+        }
+
+        .search-doctor {
+            margin-top: 0 !important;
+        }
+    }
+
+    .testimonial {
+        .parallax {
+            .person {
+                .comment {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+
+                img {
+                    width: 200px;
+                }
             }
         }
     }

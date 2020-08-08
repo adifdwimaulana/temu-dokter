@@ -1,0 +1,45 @@
+$primary-color: #4ACCD1;
+$secondary-color: #666;
+$text-color: #444;
+$title-size: 46px;
+$text-bold: 700;
+
+.btn-cta {
+    background-color: $primary-color;
+    border: 1px solid transparent;
+    border-color: $primary-color;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: $text-bold;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    padding: 8px 48px;
+    outline: none !important;
+
+    &:hover {
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+        text-decoration: none;
+        color: #000;
+    }
+}
+
+.btn-second-cta {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    border-radius: 8px;
+    color: #000;
+    font-size: 18px;
+    font-weight: $text-bold;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    padding: 8px 48px;
+
+    &:hover {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        text-decoration: none;
+        color: #fff;
+    }   
+}

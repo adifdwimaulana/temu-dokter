@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
+import './index.scss';
 
 export default function Button(props) {
     const className = [props.className]
@@ -9,6 +10,7 @@ export default function Button(props) {
     if (props.isSmall) className.push("btn-sm")
     if (props.isBlock) className.push("btn-block")
     if (props.hasShadow) className.push("btn-shadow")
+    if (props.isCTA) className.push("btn-cta")
 
     const onClick = () => {
         if (props.onClick) {
@@ -78,6 +80,7 @@ Button.propTypes = {
     isSmall: propTypes.bool,
     isLarge: propTypes.bool,
     isBlock: propTypes.bool,
+    isCTA: propTypes.bool,
     hasShadow: propTypes.bool,
     isExternal: propTypes.bool,
 }

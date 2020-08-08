@@ -4,7 +4,7 @@ import BrandIcon from './BrandIcon';
 
 import { Link } from 'react-scroll';
 
-export default function Header(props) {
+export default function Header() {
 
     const [isNavCollapsed, setIsnavCollapsed] = useState(true)
 
@@ -26,13 +26,13 @@ export default function Header(props) {
                                 <Link activeClass="active" className="nav-link" to="hero" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link activeClass="active" offset={-120} className="nav-link" to="about" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>About</Link>
+                                <Link activeClass="active" offset={-120} className="nav-link" to="about" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Tentang</Link>
                             </li>
                             <li className="nav-item">
-                                <Link activeClass="active" className="nav-link" to="services" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Services</Link>
+                                <Link activeClass="active" offset={-120} className="nav-link" to="doctor-list" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Dokter</Link>
                             </li>
                             <li className="nav-item">
-                                <Link activeClass="active" className="nav-link" to="pricing" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Pricing</Link>
+                                <Link activeClass="active" className="nav-link" to="partner" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Partner</Link>
                             </li>
                             <li className="nav-item">
                                 <Button className="nav-link" type="link" href="/login">
