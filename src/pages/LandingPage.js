@@ -7,6 +7,7 @@ import Doctor from '../partials/Doctor';
 import Facility from '../partials/Facility';
 import Testimonial from '../partials/Testimonial';
 import Partner from '../partials/Partner';
+import Footer from '../partials/Footer';
 
 const data = [
     {
@@ -39,6 +40,7 @@ export default class LandingPage extends React.Component {
                 <Facility />
                 <Testimonial />
                 <Partner />
+                <Footer />
             </>
         )
     }

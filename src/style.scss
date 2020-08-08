@@ -227,7 +227,6 @@ header {
             text-align: justify;
             font-weight: 400;
             margin-top: 12px;
-            // letter-spacing: 0px;
         }
     }
 }
@@ -341,11 +340,86 @@ header {
 }
 
 
+footer {
+    padding: 40px 0;
+    background: #f2f2f2;
+    color: $secondary-color;
+    font-size: 16px;
+    text-align: justify;
+
+    .about-footer {
+        letter-spacing: 0.8px;
+        font-weight: 600;
+    }
+
+    .information-footer {
+        margin-top: 30px;
+    }
+
+    .footer-wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        .link-footer {
+            color: $secondary-color;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+            padding: 2px 0;
+            // text-transform: uppercase;
+
+            &:hover {
+                text-decoration: none;
+                color: $primary-color !important;
+            }
+        }
+
+        .icon-group {
+            padding: 6px 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            h5 {
+                margin: 0 0 0 16px;
+                letter-spacing: 0.8px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.copyright {
+    margin: 0;
+    height: 50px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 16px;
+        text-align: center;
+        color: $text-color;
+        font-weight: 400;
+    }
+}
+
+
+
+
+
 
 
 // MOBILE RESPONSIVE
 
 @media (max-width: 575.98px) {
+    hr {
+        width: 120px !important;
+    }
+
     header {
         position: relative;
 
@@ -372,7 +446,8 @@ header {
 
         .hero-text {
             margin-top: -120px;
-            line-height: $title-size;
+            font-size: 36px;
+            line-height: 46px;
         }
 
         img {
@@ -408,6 +483,10 @@ header {
     .about {
         margin-top: 60px;
 
+        .about-title {
+            font-size: 36px;
+        }
+
         .title {
             margin-top: 20px;
         }
@@ -431,6 +510,12 @@ header {
         }
     }
 
+    .facility {
+        .facility-title {
+            font-size: 36px;
+        }
+    }
+
     .testimonial {
         .parallax {
             .person {
@@ -447,8 +532,10 @@ header {
     }
 
     .partner {
+        padding-bottom: 40px !important;
         .partner-top {
-            margin-top: 0px !important;
+            margin: 0px !important;
+            // margin-bottom: 0px !important;
             .col-lg {
                 margin: 20px 0px;
                 justify-content: center;
@@ -459,4 +546,25 @@ header {
             }
         }
         }
+
+        footer {
+            padding-top: 20px;
+            .about-footer {
+                margin-top: 20px;   
+            }
+
+            .icon-group {
+                padding: 6px 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+    
+                h5 {
+                    margin: 0 0 0 16px;
+                    letter-spacing: 0.4px !important;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+        }
+    }
   }
