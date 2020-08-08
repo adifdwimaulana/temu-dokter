@@ -32,7 +32,7 @@ export default function Header() {
                                 <Link activeClass="active" offset={-120} className="nav-link" to="doctor-list" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Dokter</Link>
                             </li>
                             <li className="nav-item">
-                                <Link activeClass="active" className="nav-link" to="partner" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Partner</Link>
+                                <Link activeClass="active" offset={-70} className="nav-link" to="partner" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Partner</Link>
                             </li>
                             <li className="nav-item">
                                 <Button className="nav-link" type="link" href="/login">

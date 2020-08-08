@@ -267,7 +267,6 @@ header {
 
 .testimonial {
     margin-top: 80px;
-    margin-bottom: 400px;
 
     .parallax {
         background-image: url('./assets//parallax.jpg');
@@ -317,6 +316,27 @@ header {
                 }
         }
 
+    }
+}
+
+.partner {
+    margin: 0;
+    padding: 60px 0 100px 0;
+    background-color: #fafafa;
+
+    .partner-title {
+        color: $text-color;
+        font-size: 36px;
+        font-weight: $text-bold;
+        letter-spacing: 1.2px;
+        text-align: center;
+    }
+
+    .col-lg {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 24px !important;
     }
 }
 
@@ -425,4 +445,18 @@ header {
             }
         }
     }
+
+    .partner {
+        .partner-top {
+            margin-top: 0px !important;
+            .col-lg {
+                margin: 20px 0px;
+                justify-content: center;
+    
+                img {
+                    width: 220px;
+                }
+            }
+        }
+        }
   }
