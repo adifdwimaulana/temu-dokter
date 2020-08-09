@@ -4,11 +4,13 @@ import BrandIcon from './BrandIcon';
 
 import { Link } from 'react-scroll';
 
-export default function Header() {
+export default function Header(props) {
 
     const [isNavCollapsed, setIsnavCollapsed] = useState(true)
-
     const handleNavCollapse = () => setIsnavCollapsed(!isNavCollapsed)
+
+    const [isDropdownCollapse, setIsDropdownCollapse] = useState(false)
+    const handleDropdown = () => setIsDropdownCollapse(!isDropdownCollapse)
 
 
     return (
@@ -34,11 +36,23 @@ export default function Header() {
                             <li className="nav-item">
                                 <Link activeClass="active" offset={-70} className="nav-link" to="partner" spy={true} smooth={true} duration={500} style={{ cursor: 'pointer' }}>Partner</Link>
                             </li>
-                            <li className="nav-item">
-                                <Button className="nav-link" type="link" href="/login">
-                                    Login
-                                </Button>
-                            </li>
+
+                            {
+                                props.isLogin == true ?
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" id="dropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded={!isDropdownCollapse ? true : false} onClick={handleDropdown}>Akun</a>
+                                        <div className={`dropdown-menu${isDropdownCollapse ? " show" : ""}`} aria-labelledby="dropdownMenu">
+                                            <Button className="dropdown-item" type="link" href="/user/profile">Profil</Button>
+                                            <Button className="dropdown-item" type="link" href="/">Logout</Button>
+
+                                        </div>
+                                    </li> :
+                                    <li className="nav-item">
+                                        <Button className="nav-link" type="link" href="/login">
+                                            Login
+                        </Button>
+                                    </li>
+                            }
                         </ul>
                     </div>
                 </nav>

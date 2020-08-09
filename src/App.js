@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 
 import './style.scss';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Route exact path="/" component={LandingPage}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/register" component={Register}></Route>
       </Router>
     </div>
   );

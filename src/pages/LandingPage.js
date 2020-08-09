@@ -32,7 +32,7 @@ export default class LandingPage extends React.Component {
     render() {
         return (
             <>
-                <Header></Header>
+                <Header isLogin={this.props.isLogin} />
                 <Hero />
                 <Statistic polyclinic={13} doctor={100} ambulance={8} />
                 <About />

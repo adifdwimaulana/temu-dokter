@@ -2,10 +2,10 @@ import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Form/Input';
 
-import './login.scss';
+import './register.scss';
 
 
-export default class Login extends React.Component {
+export default class Register extends React.Component {
     constructor(props) {
         super(props)
 
@@ -36,11 +36,11 @@ export default class Login extends React.Component {
         const { user: { username, password }, submitted, erros } = this.state;
         return (
             <>
-                <div className="login">
+                <div className="register">
                     <div className="row justify-content-center">
                         <div className="input-group shadow-lg">
                             <form>
-                                <h1 className="login-title">Selamat Datang di temudokter</h1>
+                                <h1 className="register-title">Selamat Datang di temudokter</h1>
                                 <div className="form-group">
                                     <Input
                                         name="name"
@@ -66,10 +66,10 @@ export default class Login extends React.Component {
                                     />
                                 </div>
                                 <div className="btn-wrapper">
-                                    <Button className="btn" type="link" href="/" onClick={this.handleLogin} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Masuk Sebagai Tamu</Button>
-                                    <Button className="btn btn-secondary" type="link" href="/doctor/account">Masuk Sebagai Dokter</Button>
+                                    <Button className="btn" type="link" href="/" onClick={this.handleLogin} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Daftar Sebagai Tamu</Button>
+                                    <Button className="btn btn-secondary" type="link" href="/doctor/account">Daftar Sebagai Dokter</Button>
                                 </div>
-                                <h4 className="register-to">Belum punya akun ? <span><Button className="register-to" type="link" href="/register">Daftar di sini</Button></span></h4>
+                                <h4 className="register-btn"><span><Button className="register-btn" type="link" href="/">Kembali ke <span>Halaman Utama</span></Button></span></h4>
                             </form>
                         </div>
                     </div>

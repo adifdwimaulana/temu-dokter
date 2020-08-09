@@ -13,16 +13,16 @@ export default function Partner() {
                     <hr className="line mt-3" />
                     <div className="row justify-content-center partner-top mt-5">
                         <div className="col-lg">
-                            <img src={ovo} className="img-fluid" />
+                            <img src={ovo} width="150" />
                         </div>
                         <div className="col-lg">
-                            <img src={gopay} className="img-fluid" />
+                            <img src={gopay} width="150" />
                         </div>
                         <div className="col-lg">
-                            <img src={dana} className="img-fluid" />
+                            <img src={dana} width="150" />
                         </div>
                         <div className="col-lg">
-                            <img src={linkaja} className="img-fluid" />
+                            <img src={linkaja} width="150" />
                         </div>
                     </div>
                 </div>
