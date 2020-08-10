@@ -13,9 +13,7 @@ export default function Button(props) {
     if (props.isCTA) className.push("btn-cta")
 
     const onClick = () => {
-        if (props.onClick) {
-            return props.onClick
-        }
+        if (props.onClick) props.onClick()
     }
 
     if (props.isDisabled || props.isLoading) {

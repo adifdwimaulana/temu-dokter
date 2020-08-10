@@ -9,6 +9,12 @@ import Testimonial from '../partials/Testimonial';
 import Partner from '../partials/Partner';
 import Footer from '../partials/Footer';
 
+import Button from '../components/Button';
+
+import ScrollAnimation from 'react-animate-on-scroll';
+
+import { db } from '../config';
+
 const data = [
     {
         "nama": "Adif Dwi Maulana",
@@ -28,11 +34,10 @@ const data = [
 ]
 
 export default class LandingPage extends React.Component {
-
     render() {
         return (
             <>
-                <Header isLogin={this.props.isLogin} />
+                <Header />
                 <Hero />
                 <Statistic polyclinic={13} doctor={100} ambulance={8} />
                 <About />

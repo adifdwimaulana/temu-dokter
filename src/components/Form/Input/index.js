@@ -11,6 +11,7 @@ export default function Input(props) {
         <>
             <label htmlFor={name}>{label}</label>
             <input
+                name={name}
                 id={name}
                 type={type}
                 placeholder={placeholder}

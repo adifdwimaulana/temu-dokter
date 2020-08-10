@@ -3,6 +3,8 @@ import clinic from '../assets/polyclinic-icon.png';
 import doctor from '../assets/doctor-icon.png';
 import ambulance from '../assets/ambulance-icon.png';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
 export default function Statistic(props) {
     return (
         <section className="statistic">
