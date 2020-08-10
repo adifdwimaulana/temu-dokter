@@ -4,7 +4,8 @@ import Input from '../components/Form/Input';
 
 import './login.scss';
 
-import { db } from '../config';
+import firebase from 'firebase';
+import { db, store } from '../config';
 
 
 export default class Login extends React.Component {
@@ -14,25 +15,8 @@ export default class Login extends React.Component {
         this.state = {
             email: "",
             password: "",
-            users: [],
-            doctors: []
+            errorMessage: null
         }
-    }
-
-    componentDidMount() {
-        let userArr = []
-        db.ref('user-list').on('value', (snap) => {
-            // console.log(snap.val())
-            snap.forEach((item) => {
-                let itemVal = item.val();
-                console.log("item")
-                console.log(itemVal)
-                userArr.push(itemVal)
-            })
-        })
-
-        console.log(userArr)
-        this.setState({ users: userArr })
     }
 
     handleChange = event => {
@@ -42,38 +26,41 @@ export default class Login extends React.Component {
         this.setState({
             [name]: value
         })
-
-        // console.log(value)
     };
 
     userLogin = (email, password) => {
-        const filter = "email";
-        const keyword = email;
-
-        if (email != "" && password != "") {
-            const filteredData = this.state.users.filter((obj) => {
-                return obj[filter] === keyword
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((data) => {
+                console.log(data.user.uid);
+                alert("Login Berhasil !");
+            })
+            .catch(error => {
+                console.log(error)
+                this.setState({ errorMessage: error })
             })
 
-            if (filteredData[0].email == email && filteredData[0].password == password) {
-                console.log("Berhasil")
-                db.ref('/user').update({
-                    isLogin: true
-                })
-                return this.props.history.push("/")
-            } else {
-                return this.props.history.push("/login")
-            }
-        }
+        return this.props.history.push("/")
     }
 
     doctorLogin = (email, password) => {
-        console.log(email)
-        console.log(password)
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((data) => {
+                console.log(data.user.uid);
+                alert("Login Berhasil !");
+            })
+            .catch(error => {
+                console.log(error)
+                this.setState({ errorMessage: error })
+            })
+        return this.props.history.push("/")
     }
 
     render() {
-        const { email, password, submitted, erros } = this.state;
+        const { email, password, error } = this.state;
         return (
             <>
                 <div className="login">
@@ -102,7 +89,7 @@ export default class Login extends React.Component {
                                     />
                                 </div>
                                 <div className="btn-wrapper">
-                                    <Button className="btn" type="link" href="#" onClick={() => this.userLogin(email, password)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Masuk Sebagai Tamu</Button>
+                                    <Button className="btn" onClick={() => this.userLogin(email, password)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Masuk Sebagai Tamu</Button>
                                     <Button className="btn btn-secondary" type="link" onClick={() => this.doctorLogin(email, password)} href="/doctor/account">Masuk Sebagai Dokter</Button>
                                 </div>
                                 <h4 className="register-to">Belum punya akun ? <span><Button className="register-to" type="link" href="/register">Daftar di sini</Button></span></h4>

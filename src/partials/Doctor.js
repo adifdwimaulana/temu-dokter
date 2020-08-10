@@ -28,7 +28,7 @@ export default function Doctor(props) {
                                 <div className="card-body">
                                     <h5 className="card-title">{data[0].nama}</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Button isCTA style={styles.button} type="link" href={`/doctor/${id}`}>Jadwalkan</Button>
+                                    <Button isCTA style={styles.button} type="link" href={`/dokter/${id}`}>Jadwalkan</Button>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ export default function Doctor(props) {
                                 <div className="card-body">
                                     <h5 className="card-title">{data[0].nama}</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Button isCTA style={styles.button} type="link" href={`/doctor/${id}`}>Jadwalkan</Button>
+                                    <Button isCTA style={styles.button} type="link" href={`/dokter/${id}`}>Jadwalkan</Button>
                                 </div>
                             </div>
                         </div>

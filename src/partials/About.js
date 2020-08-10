@@ -11,18 +11,21 @@ export default function About() {
         <section className="about" id="about" name="about">
             <div className="container">
                 <h1 className="about-title">Tentang Kami</h1>
-                {/* <hr className="line" style={{ float: "left" }} /> */}
-                <div className="row justify-content-center mt-5 pt-3">
-                    <div className="col-lg">
-                        <div className="img-container">
-                            <img src={hospital} width="600" className="img-fluid shadow about-img" />
+                <hr className="line" style={{ float: " left" }} />
+                <div style={{ marginTop: 60 }} >
+                    <div className="row justify-content-center">
+                        <div className="col-lg">
+                            <div className="img-container">
+                                <img src={hospital} width="600" className="img-fluid shadow about-img" />
+                            </div>
+                        </div>
+                        <div className="col-lg desc">
+                            <h1 className="title">Mempermudah <span>Konsultasi</span> dengan Dokter</h1>
+                            <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet a sem eget porttitor.</p>
+                            <Button className="mt-4" isCTA>Atur Jadwal</Button>
                         </div>
                     </div>
-                    <div className="col-lg">
-                        <h1 className="title">Mempermudah <span>Konsultasi</span> dengan Dokter</h1>
-                        <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet a sem eget porttitor.</p>
-                        <Button className="mt-4" isCTA>Atur Jadwal</Button>
-                    </div>
+
                 </div>
             </div>
             <div className="doctors-content">

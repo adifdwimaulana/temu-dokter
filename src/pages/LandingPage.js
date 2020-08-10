@@ -13,7 +13,8 @@ import Button from '../components/Button';
 
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import { db } from '../config';
+import { db, store } from '../config';
+import firebase from 'firebase';
 
 const data = [
     {
@@ -34,10 +35,30 @@ const data = [
 ]
 
 export default class LandingPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            user: null,
+            isLogin: false
+        }
+    }
+
+    componentDidMount() {
+        let currentUser = firebase.auth().currentUser;
+
+        if (currentUser) {
+            console.log(currentUser.uid)
+            this.setState({ user: currentUser })
+        }
+    }
+
     render() {
+        const { user } = this.state
+        console.log(user)
         return (
             <>
-                <Header />
+                <Header user={user} />
                 <Hero />
                 <Statistic polyclinic={13} doctor={100} ambulance={8} />
                 <About />

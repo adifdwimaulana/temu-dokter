@@ -50,7 +50,8 @@ export default class DoctorDetail extends React.Component {
 
         const breadcrumbList = [
             { pageTitle: "Home", pageHref: "" },
-            { pageTitle: "Detail Dokter", pageHref: "" }
+            { pageTitle: "Dokter", pageHref: "/dokter" },
+            { pageTitle: "Detail", pageHref: "" }
         ]
 
         return (
@@ -98,7 +99,7 @@ export default class DoctorDetail extends React.Component {
                                                 />
                                             </div>
                                         </div>
-                                        <Button isCTA type="link" href="/payment">Lanjutkan</Button>
+                                        <Button isCTA type="link" href="/payment" onClick={() => alert("Hello")} >Lanjutkan</Button>
                                     </form>
                                 </div>
                             </div>

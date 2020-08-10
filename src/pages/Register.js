@@ -1,19 +1,23 @@
 import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Form/Input';
+import firebase from 'firebase';
 
 import './register.scss';
 
-import { db } from '../config';
+import { db, store } from '../config';
 
 export default class Register extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            username: "",
+            name: "",
+            email: "",
             password: "",
-            email: ""
+            phone: "",
+            errorMessage: null
+
         };
     }
 
@@ -28,24 +32,42 @@ export default class Register extends React.Component {
         console.log(value)
     };
 
-    registerUser = (name, email, password) => {
-        db.ref('/user-list').push({
-            name,
-            email,
-            password
-        })
+    registerUser = (name, email, password, phone) => {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                store.collection('users').doc(firebase.auth().currentUser.uid).set({
+                    name,
+                    email,
+                    password,
+                    phone
+                })
+                alert("Registrasi Berhasil")
+            })
+            .catch(error => console.log(error))
+        return this.props.history.push("/")
     }
 
-    registerDoctor = (name, email, password) => {
-        db.ref('/doctor-list').push({
-            name,
-            email,
-            password
-        })
+    registerDoctor = (name, email, password, phone) => {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                store.collection('doctors').doc(firebase.auth().currentUser.uid).set({
+                    name,
+                    email,
+                    password,
+                    phone
+                })
+                alert("Registrasi Berhasil")
+            })
+            .catch(error => console.log(error))
+        return this.props.history.push("/")
     }
 
     render() {
-        const { name, email, password } = this.state;
+        const { name, email, password, phone, errorMessage } = this.state;
         return (
             <>
                 <div className="register">
@@ -86,9 +108,21 @@ export default class Register extends React.Component {
                                         className="form-control"
                                     />
                                 </div>
+
+                                <div className="form-group">
+                                    <Input
+                                        name="phone"
+                                        label="Phone"
+                                        type="text"
+                                        placeholder="Masukkan No. Hp"
+                                        onChange={this.handleChange}
+                                        className="form-control"
+                                    />
+                                </div>
+
                                 <div className="btn-wrapper">
-                                    <Button className="btn" type="link" href="/login" onClick={() => this.registerUser(name, email, password)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Daftar Sebagai Tamu</Button>
-                                    <Button className="btn btn-secondary" type="link" href="/login" onClick={() => this.registerDoctor(name, email, password)}>Daftar Sebagai Dokter</Button>
+                                    <Button className="btn" onClick={() => this.registerUser(name, email, password, phone)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Daftar Sebagai Tamu</Button>
+                                    <Button className="btn btn-secondary" onClick={() => this.registerDoctor(name, email, password, phone)}>Daftar Sebagai Dokter</Button>
                                 </div>
                                 <h4 className="register-btn"><span><Button className="register-btn" type="link" href="/">Kembali ke <span>Halaman Utama</span></Button></span></h4>
                             </form>
