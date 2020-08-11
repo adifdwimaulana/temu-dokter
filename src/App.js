@@ -9,6 +9,8 @@ import DoctorDetail from './pages/DoctorDetail';
 import Example from './pages/Example';
 import Profile from './pages/Profile';
 
+import DoctorProfile from './pages/doctor/Profile';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/dokter/1" component={DoctorDetail}></Route>
         <Route path="/example" component={Example}></Route>
         <Route path="/user/profile/:id" component={Profile}></Route>
+        <Route path="/doctor/profile/:id" component={DoctorProfile}></Route>
       </Router>
     </div>
   );

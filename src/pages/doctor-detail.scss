@@ -7,6 +7,12 @@ $text-color: #444;
 $title-size: 46px;
 $text-bold: 700;
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
 hr.line {
     margin-top: 20px;
     width: 180px;

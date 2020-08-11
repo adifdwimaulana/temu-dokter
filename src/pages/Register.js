@@ -122,7 +122,7 @@ export default class Register extends React.Component {
 
                                 <div className="btn-wrapper">
                                     <Button className="btn" onClick={() => this.registerUser(name, email, password, phone)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Daftar Sebagai Tamu</Button>
-                                    <Button className="btn btn-secondary" onClick={() => this.registerDoctor(name, email, password, phone)}>Daftar Sebagai Dokter</Button>
+                                    <Button className="btn btn-secondary mt-2" onClick={() => this.registerDoctor(name, email, password, phone)}>Daftar Sebagai Dokter</Button>
                                 </div>
                                 <h4 className="register-btn"><span><Button className="register-btn" type="link" href="/">Kembali ke <span>Halaman Utama</span></Button></span></h4>
                             </form>

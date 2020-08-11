@@ -33,6 +33,14 @@ hr.line {
 
 .profile {
     margin: 0 0 80px 0;
+
+    .profile-description {
+        margin-top: 32px;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+        letter-spacing: 1.2px;
+    }
     
     #mid-part {
         display: flex;
@@ -45,6 +53,31 @@ hr.line {
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        .wrapper-consultation {
+            background-color: $primary-color;
+            border-radius: 8px;
+            margin: 16 0 0 0 !important;
+            padding: 8px 16px;
+            color: #fff;
+            font-weight: 400 !important;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-between;
+
+            .konsultasi {
+                font-weight: 400 !important;
+                font-size: 16px;
+            }
+            
+            .konsultasi-count {
+                margin-top: 16px;
+                font-size: 24px;
+                letter-spacing: 0.8px;
+                font-weight: $text-bold;
+            }
+
+        }
 
         .bio-wrapper {
             display: flex;
@@ -131,7 +164,8 @@ hr.line {
 
             &:hover {
                 transform: .5s ease;
-                box-shadow: 0 .75rem 1.25rem rgba(0,0,0,.15)!important
+                box-shadow: 0 .75rem 1.25rem rgba(0,0,0,.15)!important;
+                opacity: 0.9;
             }
 
             .doctor-name {
@@ -161,6 +195,30 @@ hr.line {
                 color: $secondary-color;
                 font-weight: 400;
                 letter-spacing: -0.4px;
+            }
+
+            .doctor-status {
+                margin-top: 16px;
+                font-size: 16px;
+                color: 400;
+                font-weight: 400;
+                letter-spacing: -0.4px;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+            
+            .btn-doctor {
+                padding: 4px 25px;
+                border-radius: 8px;
+                border: 1px solid gray;
+                color: #000;
+                font-weight: 400;
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }

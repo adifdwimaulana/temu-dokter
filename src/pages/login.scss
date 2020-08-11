@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 // Global Variables
 $primary-color: #4ACCD1;
 $secondary-color: #666;
 $text-color: #444;
 $title-size: 46px;
 $text-bold: 700;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
 
 .login {
     height: 100vh;

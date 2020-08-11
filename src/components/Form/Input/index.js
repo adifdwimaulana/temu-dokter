@@ -31,7 +31,7 @@ Input.defaultProps = {
 Input.propTypes = {
     name: propTypes.string.isRequired,
     placeholder: propTypes.string.isRequired,
-    type: propTypes.oneOf(['text', 'number', 'password']),
+    type: propTypes.oneOf(['text', 'number', 'password', 'file']),
     onChange: propTypes.func,
     className: propTypes.string,
     value: propTypes.any

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
-import Breadcrumb from '../components/Breadcrumb';
-import Input from '../components/Form/Input';
-import Button from '../components/Button';
+import Header from '../../partials/Header';
+import Footer from '../../partials/Footer';
+import Breadcrumb from '../../components/Breadcrumb';
+import Input from '../../components/Form/Input';
+import Button from '../../components/Button';
 import Modal from 'react-modal';
 
-import { db, store } from '../config';
+import { db, store } from '../../config';
 import firebase from 'firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,14 +15,14 @@ import { faMoneyBillAlt, faEdit, faCalendarAlt, faImage } from '@fortawesome/fre
 
 import './profile.scss';
 
-import user from '../assets/flat-user.png';
-import ovo from '../assets/partners/ovo.png';
+import user from '../../assets/flat-user.png';
+import ovo from '../../assets/partners/ovo.png';
 
 import DatePicker from 'react-datepicker';
 
 Modal.setAppElement('body')
 
-export default function Profile(props) {
+export default function DoctorProfile(props) {
 
     let id = ""
 
@@ -40,7 +40,7 @@ export default function Profile(props) {
 
     const breadcrumbList = [
         { pageTitle: "Home", pageHref: "" },
-        { pageTitle: "User", pageHref: "" },
+        { pageTitle: "Dokter", pageHref: "" },
         { pageTitle: "Profile", pageHref: "" },
     ]
 
@@ -48,7 +48,7 @@ export default function Profile(props) {
         id = props.match.params.id;
         console.log("Params = ", id)
 
-        store.collection('users')
+        store.collection('doctors')
             .doc(id)
             .get()
             .then((doc) => {
@@ -67,7 +67,7 @@ export default function Profile(props) {
                 }
             })
 
-    })
+    }, [])
 
     const handleChange = event => {
         const target = event.target;
@@ -92,7 +92,7 @@ export default function Profile(props) {
     const handleTopUp = () => {
         setSaldo(saldo + Number(topUp))
         console.log(id)
-        store.collection('users')
+        store.collection('doctors')
             .doc(id)
             .set({
                 saldo: saldo + Number(topUp)
@@ -137,7 +137,7 @@ export default function Profile(props) {
         console.log("Phone ", phone)
         console.log("Id ", id)
 
-        store.collection('users')
+        store.collection('doctors')
             .doc(id)
             .set({
                 email,
@@ -186,42 +186,39 @@ export default function Profile(props) {
 
                             </div>
                             <div className="col-5">
-                                <div style={{ display: "flex", flexDirection: 'row', alignItems: 'center', marginLeft: 16 }}>
-                                    <FontAwesomeIcon icon={faMoneyBillAlt} size="2x" className="icon" style={{ color: '#444' }} />
-                                    <h4 className="saldo-name">Saldo</h4>
+                                <div className="wrapper-consultation">
+                                    <h4 className="konsultasi">Bulan Ini</h4>
+                                    <h4 className="konsultasi-count">Konsultasi Selesai : 40</h4>
                                 </div>
-                                <div className="saldo-wrapper">
-                                    <h4 className="saldo">Rp. {saldo}</h4>
-                                    <img src={ovo} width="120" />
-                                </div>
-                                <div className="top-up">
-                                    <Input
-                                        label="saldo"
-                                        name="saldo"
-                                        type="number"
-                                        placeholder="Rp. 50000"
-                                        onChange={handleSaldo}
-                                        className="form-control"
-                                    />
-                                    <Button className="mt-2" isCTA onClick={handleTopUp}>Top Up</Button>
+                                <div className="wrapper-consultation" style={{ marginTop: 8, backgroundColor: '#f2b879' }}>
+                                    <h4 className="konsultasi">Minggu Ini</h4>
+                                    <h4 className="konsultasi-count">Konsultasi Selesai : 8</h4>
                                 </div>
                             </div>
+                            <h4 className="profile-description">
+                                dr. Abdul Khoifan, Sp.PD adalah seorang Dokter Spesialis Penyakit Dalam yang bekerja di Rumah Sakit Mitra Keluarga Bekasi dari tahun 2002 hingga sekarang. Beliau menempuh pendidikan Kedokteran Umum di Universitas Indonesia dan lulus tahun 1991, kemudian melanjutkan pendidikan Spesialis Penyakit Dalam di Universitas yang sama dan lulus pada tahun 2002. dr. Abdul Khoifan, Sp.PD memberikan layanan kesehatan yang meliputi Konsultasi dan layanan terkait Kebidanan dan Kandungan. Beliau terhimpun dengan Ikatan Dokter Indonesia (IDI).
+                            </h4>
+
                         </div>
                         <hr width="100%" className="mt-3" />
                         <div className="row">
                             <div className="activity-card">
                                 <h1 className="last-activity-title mb-4">Aktifitas Terakhir</h1>
                                 <div className="activity-card-content mb-3 shadow">
-                                    <h1 className="doctor-name">dr. Abdul Khoifan, Sp. PD</h1>
-                                    <h4 className="doctor-polyclinic">Poli Penyakit Dalam</h4>
-                                    <h4 className="doctor-date">Selasa, 08/11/2020</h4>
+                                    <h1 className="doctor-name">Adif Dwi Maulana</h1>
+                                    <h4 className="doctor-polyclinic">Sesak Napas</h4>
+                                    <h4 className="doctor-date">Selasa, 08/11/2020 10:00 A.M.</h4>
                                     <h4 className="doctor-report">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                                    <h4 className="doctor-status">Status : <span>Menunggu Persetujuan</span></h4>
+                                    <Button className="btn-doctor" >Setuju</Button>
                                 </div>
                                 <div className="activity-card-content mt-3 shadow">
-                                    <h1 className="doctor-name">dr. Alif Habib, Sp. KK</h1>
-                                    <h4 className="doctor-polyclinic">Poli Kulit dan Kelamin</h4>
-                                    <h4 className="doctor-date">Selasa, 08/9/2020</h4>
+                                    <h1 className="doctor-name">Kerent Vidia</h1>
+                                    <h4 className="doctor-polyclinic">Vertigo</h4>
+                                    <h4 className="doctor-date">Selasa, 08/9/2020 02:00 P.M.</h4>
                                     <h4 className="doctor-report">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                                    <h4 className="doctor-status">Status : <span>Selesai</span></h4>
+                                    <Button className="btn-doctor" >Selesai</Button>
                                 </div>
                             </div>
                         </div>

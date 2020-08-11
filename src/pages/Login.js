@@ -90,7 +90,7 @@ export default class Login extends React.Component {
                                 </div>
                                 <div className="btn-wrapper">
                                     <Button className="btn" onClick={() => this.userLogin(email, password)} style={{ backgroundColor: '#4ACCD1', color: '#fff' }}>Masuk Sebagai Tamu</Button>
-                                    <Button className="btn btn-secondary" type="link" onClick={() => this.doctorLogin(email, password)} href="/doctor/account">Masuk Sebagai Dokter</Button>
+                                    <Button className="btn btn-secondary" type="link" onClick={() => this.doctorLogin(email, password)}>Masuk Sebagai Dokter</Button>
                                 </div>
                                 <h4 className="register-to">Belum punya akun ? <span><Button className="register-to" type="link" href="/register">Daftar di sini</Button></span></h4>
                             </form>
