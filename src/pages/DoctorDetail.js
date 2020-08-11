@@ -5,7 +5,8 @@ import Button from '../components/Button';
 
 import Modal from 'react-modal';
 
-import { db } from '../config';
+import { db, store } from '../config';
+import firebase from 'firebase';
 
 import doctor from '../assets/doctor-2.jpg';
 import hospital from '../assets/hospital.jpg';
@@ -25,8 +26,30 @@ export default function DoctorDetail() {
     const [date, setDate] = useState(new Date())
     const [modalIsOpen, setIsOpen] = useState(false)
 
+    const [url, setUrl] = useState("")
+
     useEffect(() => {
         console.log("Date ", date)
+
+        let user = firebase.auth().currentUser;
+
+        if (user) {
+            store.collection('users')
+                .doc(user.uid)
+                .get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        console.log("Exist")
+                        let currentUrl = `/user/profile/${firebase.auth().currentUser.uid}`
+                        setUrl(currentUrl)
+
+                    } else {
+                        console.log("Empty")
+                        let currentUrl = `/doctor/profile/${firebase.auth().currentUser.uid}`
+                        setUrl(currentUrl)
+                    }
+                })
+        }
     })
 
     const openModal = () => {
@@ -82,7 +105,7 @@ export default function DoctorDetail() {
 
                     <div className="row">
                         <div className="appointment-detail">
-                            <h5 className="doctor-description">dr. Abdul Khoifan, Sp.OG adalah seorang Dokter Spesialis Obstetri dan Ginekologi yang bekerja di Rumah Sakit Mitra Keluarga Bekasi dari tahun 2002 hingga sekarang. Beliau menempuh pendidikan Kedokteran Umum di Universitas Indonesia dan lulus tahun 1991, kemudian melanjutkan pendidikan Spesialis Kebidanan & Kandungan di Universitas yang sama dan lulus pada tahun 2002.   dr. Abdul Khoifan, Sp.OG memberikan layanan kesehatan yang meliputi Konsultasi dan layanan terkait Kebidanan dan Kandungan. Beliau terhimpun dengan Ikatan Dokter Indonesia (IDI).</h5>
+                            <h5 className="doctor-description">dr. Abdul Khoifan, Sp.PD adalah seorang Dokter Spesialis Penyakit Dalam yang bekerja di Rumah Sakit Mitra Keluarga Bekasi dari tahun 2002 hingga sekarang. Beliau menempuh pendidikan Kedokteran Umum di Universitas Indonesia dan lulus tahun 1991, kemudian melanjutkan pendidikan Spesialis Penyakit Dalam di Universitas yang sama dan lulus pada tahun 2002. dr. Abdul Khoifan, Sp.PD memberikan layanan kesehatan yang meliputi Konsultasi dan layanan terkait Kebidanan dan Kandungan. Beliau terhimpun dengan Ikatan Dokter Indonesia (IDI).</h5>
                             <h1 className="appointment-title">Lokasi & Jadwal Praktik</h1>
                             <img src={hospital} className="mt-3" style={{ borderRadius: 8 }} width="300" />
                             <div className="location-wrapper">
@@ -103,7 +126,7 @@ export default function DoctorDetail() {
                                             />
                                         </div>
                                     </div>
-                                    <Button isCTA onClick={openModal} >Atur Jadwal</Button>
+                                    <Button isCTA type="link" href={url}  >Atur Jadwal</Button>
                                 </form>
                             </div>
                         </div>
