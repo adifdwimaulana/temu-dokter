@@ -10,7 +10,7 @@ export default function Partner() {
             <div className="partner">
                 <div className="container">
                     <h1 className="partner-title">Payment Partner</h1>
-                    <hr className="line mt-3" />
+                    <hr className="center mt-3" />
                     <div className="row justify-content-center partner-top mt-5">
                         <div className="col-lg">
                             <img src={ovo} width="150" />

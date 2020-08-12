@@ -18,7 +18,7 @@ export default function Doctor(props) {
             <div className="doctor-list mt-5">
                 <div className="container">
                     <h1 className="title">Dokter Kami</h1>
-                    <hr className="line mt-3" style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+                    <hr className="center mt-3" />
                     <div className="row justify-content-center mt-5">
                         <div className="col-lg">
                             <div class="card shadow">
@@ -26,7 +26,7 @@ export default function Doctor(props) {
                                     <img src={doctor1} className="card-img-top" height="260" />
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{data[0].nama}</h5>
+                                    <h5 className="card-title">dr. Rizanto Juliarsyah, Sp. OG</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <Button isCTA style={styles.button} type="link" href={`/dokter/${id}`}>Jadwalkan</Button>
                                 </div>
@@ -38,7 +38,7 @@ export default function Doctor(props) {
                                     <img src={doctor2} className="card-img-top" height="260" />
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">dr. Abdul Khoifan, Sp.OG</h5>
+                                    <h5 className="card-title">dr. Abdul Khoifan, Sp. PD</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <Button isCTA style={styles.button} type="link" href={`/dokter/${id}`}>Jadwalkan</Button>
                                 </div>
@@ -50,7 +50,7 @@ export default function Doctor(props) {
                                     <img src={doctor3} className="card-img-top" height="260" />
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{data[2].nama}</h5>
+                                    <h5 className="card-title">dr. Ilham Perdana, Sp. THT</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <Button isCTA style={styles.button} type="link" href={`/doctor/${id}`}>Jadwalkan</Button>
                                 </div>

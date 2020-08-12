@@ -13,7 +13,7 @@ export default function Facility() {
             <div className="facility">
                 <div className="container">
                     <h1 className="facility-title">Fasilitas Kami</h1>
-                    <hr className="line mt-2" style={{ float: "left" }} />
+                    <hr className="center mt-2" style={{ float: "left" }} />
                     <div className="row justify-content-center mt-5">
                         <OwlCarousel
                             className="owl-theme"

@@ -11,7 +11,7 @@ export default function About() {
         <section className="about" id="about" name="about">
             <div className="container">
                 <h1 className="about-title">Tentang Kami</h1>
-                <hr className="line" style={{ float: " left" }} />
+                <hr className="center" style={{ float: " left" }} />
                 <div style={{ marginTop: 60 }} >
                     <div className="row justify-content-center">
                         <div className="col-lg">
